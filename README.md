@@ -17,7 +17,7 @@ Abra http://localhost:5173. Para outra porta: `node server.js 8080`.
 - [`docs/design/01-pesquisa-apple.md`](docs/design/01-pesquisa-apple.md): o que aprendemos estudando as páginas de produto da Apple.
 - [`docs/design/02-sistema-de-design.md`](docs/design/02-sistema-de-design.md): personas, narrativa, regras de movimento, roteiro da abertura e das próximas seções.
 
-Para ajustar a abertura quadro a quadro, abra o console do navegador e use `film.seek(5.2)`. Para voltar a tocar, clique em "Repetir abertura".
+Para ajustar a abertura quadro a quadro, abra o console do navegador e use `film.seek(9.6)`. Para voltar a tocar, clique em "Repetir abertura".
 
 ## Estrutura
 
@@ -42,7 +42,7 @@ js/                   scripts clássicos, carregados nesta ordem (compartilham o
   reveal.js           observador de visibilidade
   nav.js              seção ativa e tema claro/escuro da nav
   streaks.js          cortinas de luz
-  hero-film.js        abertura "A forja": fio incandescente que esfria e é dobrado até virar o clipe (three.js)
+  hero-film.js        abertura "A forja": fundição, têmpera na água, dobra e o clipe sobre o papel (three.js)
   game-engines.js     motores Bigodes e FicCity
   highlights.js … panel.js   lógica de cada seção
   loop.js             laço único de animação

@@ -61,7 +61,7 @@ Voz: frases curtas, verbos no presente, números concretos, nenhum jargão. Port
 4. **Sempre interrompível.** O filme tem "Pular abertura" e "Repetir abertura". Sair da seção encerra o filme.
 5. **Movimento reduzido = quadro final.** Com "reduzir movimento" ligado, mostra-se direto o estado final, sem perder nenhuma informação.
 6. **Objetos têm peso.** Aceleram e freiam, nunca começam ou param secos.
-7. **A luz conta a história.** Escuro antes, luz depois. O fio incandescente é a primeira luz da cena e o metal reflete o estúdio.
+7. **A luz conta a história.** Escuro antes, luz depois. O metal líquido é a primeira luz da cena e, frio, o aço passa a refletir o estúdio.
 
 ### Tokens (em `css/base.css` e `js/core.js`)
 | Token | Valor | Uso |
@@ -83,34 +83,36 @@ Voz: frases curtas, verbos no presente, números concretos, nenhum jargão. Port
 
 ## 4. A abertura: "A forja"
 
-**Intenção:** a pessoa assiste ao nascimento do símbolo da empresa. Um fio de aço incandescente sai do escuro,
-esfria até virar prata e é dobrado curva por curva até se tornar o clipe. É a ideia da PaperClips (fazer algo
-simples e essencial com cuidado) contada sem uma palavra.
+**Intenção:** mostrar a empresa com um início robusto. O espectador acompanha a fabricação do símbolo da PaperClips:
+metal líquido vira barra, a barra é temperada na água, o aço é dobrado com calma e o clipe pousa sobre papéis.
+O papel vira a própria página do site.
 
-Arquivo: [`js/hero-film.js`](../../js/hero-film.js). Duração: 9,6 s. Pode ser pulada e repetida.
+Arquivo: [`js/hero-film.js`](../../js/hero-film.js). Duração: 20,4 s. Pode ser pulada e repetida.
 
-| Tempo | Cena | O que se vê | Por quê |
-|---|---|---|---|
-| 0,0–0,5 s | Escuro | Preto absoluto. | O silêncio antes da fala |
-| 0,5–3,0 s | **Nascimento** | Um ponto de luz aparece e dele sai um fio branco-amarelo, rápido no início e freando até parar, soltando fagulhas. A câmera começa rente ao ponto e recua acompanhando o fio. | O fio é a única luz da cena. Ele chama o olhar |
-| 1,5–4,8 s | **Têmpera** | O fio esfria da ponta para trás: amarelo, laranja, vermelho, um tom de palha e, por fim, o aço prateado. A luz do estúdio sobe aos poucos e um brilho percorre o metal. | A transformação de matéria bruta em produto acabado |
-| 4,3–7,2 s | **Dobra** | As três curvas do clipe se dobram uma de cada vez, a de fora, a do meio e a de dentro. O trecho do meio fica parado, como preso num dobrador. O trecho que gira passa por cima do arame e assenta no plano com uma leve acomodação de mola. O fio gira no espaço para mostrar cada dobra. | Cuidado e precisão: cada curva tem seu momento |
-| 6,4–9,6 s | **Assentamento** | A câmera chega ao quadro final, o fundo clareia do preto ao marfim, e o nome *paperclips*, a frase e os botões sobem em cascata. | O encanto vira informação |
+| Tempo | Cena | O que se vê |
+|---|---|---|
+| 0,0–4,4 s | **Fundição** | No escuro, um cadinho inclina e derrama um fio de metal líquido num canal reto de uma forma de grafite. O líquido corre pelo canal, tremulando e soltando fagulhas. Ele é a única luz da cena. |
+| 4,4–5,2 s | **Endurecimento** | A barra fica no canal, ainda incandescente, passando do amarelo ao laranja. |
+| 5,1–8,5 s | **Alicate** | Um alicate grande entra pelo alto, abre, desce, prende a barra em brasa, tira da forma e leva até o tanque. |
+| 8,5–10,5 s | **Têmpera** | A barra mergulha na água fria. A água ferve só em volta do metal, com bolhas, anéis e vapor iluminado pelo brilho de baixo. O brilho se apaga conforme o aço esfria. |
+| 10,5–11,0 s | **Saída** | O alicate puxa a barra rápido. A água espirra em direção à câmera. |
+| 11,0–13,0 s | **A gota** | Uma gota bate na lente: a imagem embaça e a gota funciona como uma pequena lente, invertida e ampliada. Ela escorre deixando um rastro. Ao fundo, o aço agora prateado começa a brilhar. |
+| 12,9–17,3 s | **Dobra** | Sobre uma mesa escura, sob um foco de luz, as três curvas se dobram devagar, uma de cada vez. Cada dobra leva 1,8 s e começa e termina parada (curva com velocidade e aceleração zero nas pontas). |
+| 16,6–18,9 s | **O papel** | O clipe desce e pousa no canto superior esquerdo de uma pilha de folhas, com sombra real. A câmera entra no papel. |
+| 18,9–20,4 s | **A página** | O papel cobre a tela e já tem a cor exata da página. O fundo do site assume, o clipe se ergue para a posição final e o nome sobe em cascata. |
 
 **Detalhes de execução:**
-- **Fluidez:** câmera, posição e rotação do clipe seguem curvas de Hermite que passam pelos pontos-chave **sem parar**.
-  Só o primeiro e o último quadro têm velocidade zero. Nada começa ou termina seco.
-- **Metal quente:** a cor de cada ponto do fio vem da temperatura (radiação de corpo negro), calculada a partir de quando aquele ponto saiu.
-  Enquanto está quente, o aço fica escuro e fosco. Ao esfriar, volta a refletir o estúdio.
-- **Brilho real:** a cena é desenhada em alta faixa dinâmica, e só o que passa do branco se espalha num halo (bloom em 5 níveis).
-  Sem WebGL 2, a cena é desenhada sem o halo.
-- **Fagulhas:** 280 partículas, cada uma com nascimento, velocidade, gravidade e resfriamento próprios, calculadas na placa de vídeo.
-- **Dobra física:** o comprimento do arame é preservado. Cada dobra usa uma mola que parte do repouso e assenta em ~0,8 s com ~4% de excesso.
-- **Estúdio:** as caixas de luz refletidas no aço têm bordas suaves, geradas no próprio código. Não há imagens externas.
+- **Fluidez:** câmera, alicate e clipe seguem curvas de Hermite que passam pelos pontos-chave sem parar.
+- **Metal:** a cor de cada ponto vem da temperatura (corpo negro), calculada a partir de quando aquele ponto foi preenchido e de quando entrou na água.
+  Quente, o aço é escuro e fosco e o líquido tremula. Frio, ele reflete o estúdio.
+- **Água:** a superfície se deforma na placa de vídeo (bolhas de fervura e anéis), e o brilho do metal submerso a ilumina por baixo.
+- **Lente molhada:** desfoque da cena inteira, mais a gota como lente (refração invertida, borda escura, reflexo) e o rastro.
+  A troca da oficina para o estúdio acontece escondida pelo desfoque.
+- **Papel → página:** a cor do papel é calculada de trás para frente pelo tom (ACES) do three.js, para sair exatamente `#F4F1EA` ao cobrir a tela.
+- **Brilho:** a cena é desenhada em alta faixa dinâmica, com bloom em 5 níveis. Sem WebGL 2, é desenhada sem bloom nem lente.
 - **Desempenho:** se o aparelho não mantiver ~30 quadros por segundo, a resolução interna cai sozinha.
-- O quadro final é o mesmo de antes: o clipe pode ser girado com o dedo ou o mouse.
 - Sem WebGL, aparece um clipe desenhado. Com movimento reduzido, vai direto ao quadro final.
-- Para ajustar uma cena, abra o console do navegador e use `film.seek(5.2)`, que congela o filme nesse instante.
+- Para ajustar uma cena, abra o console do navegador e use `film.seek(9.6)`, que congela o filme nesse instante.
 
 ## 5. Roteiro das próximas seções
 
@@ -133,7 +135,7 @@ Cada seção recebe o tratamento de "história de produto". Ordem sugerida de im
 Quando a PaperClips for apresentada (reunião, evento, vídeo), o site é o palco:
 
 1. **Abra em tela cheia, já no topo, com a abertura pronta.** Diga uma frase só ("Quero mostrar o que a gente está construindo.") e **pare de falar**.
-2. **Durante os 10 segundos da forja, fique parado, com as mãos quietas e o olhar na tela.** O público olha para onde você olha.
+2. **Durante os 20 segundos da forja, fique parado, com as mãos quietas e o olhar na tela.** O público olha para onde você olha.
 3. **Fale só depois que a coisa acontece.** Quando o nome aparecer, diga o que é a holding numa frase.
 4. **Role devagar, com um gesto contínuo**, como quem vira a página de um livro. Pause em cada título por 2 segundos antes de explicar.
 5. **Aponte para o resultado, não para o processo.** "Esse jogo cabe em cinco minutos", e não "aqui tem um canvas que…".

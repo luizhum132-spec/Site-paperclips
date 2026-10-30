@@ -104,8 +104,9 @@ As descrições de acessibilidade contam cada cena. Os padrões que se repetem:
 | Rótulo → título → prova → mídia | Mesma fórmula para Games e Tecnologia |
 | Escuro para o produto, claro para a conversa | Games e Tecnologia no escuro; holding e contato no claro |
 | Tocar ao chegar, uma vez, sem prender a rolagem | Já usamos; vira regra do sistema de movimento |
-| O objeto nasce e se revela | **A abertura "A forja"**: o fio nasce incandescente do escuro e é dobrado até virar o clipe |
-| A luz do produto ilumina o mundo | O fio quente é a única luz da cena; ao esfriar, o estúdio acende e o aço passa a refletir |
+| O objeto nasce e se revela | **A abertura "A forja"**: o metal é fundido, temperado e dobrado até virar o clipe |
+| A luz do produto ilumina o mundo | O metal líquido é a única luz da oficina e ilumina a forma, o alicate e a água por baixo |
+| A tela como portal | A gota na lente faz a passagem da oficina para o estúdio; o papel vira a página |
 | Quadro final sempre bonito | Movimento reduzido, botão de pular ou fim do filme dão o mesmo quadro final |
 
 O sistema completo está em [`02-sistema-de-design.md`](02-sistema-de-design.md).
