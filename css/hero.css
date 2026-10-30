@@ -1,0 +1,25 @@
+/* HERO: filme 3D */
+.hero{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:var(--ivory);transition:background-color 1.8s var(--ease)}
+.hero.night{background:#040404}
+#curtain{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#stage3d{position:absolute;inset:0;touch-action:pan-y;cursor:grab}
+#stage3d:active{cursor:grabbing}
+#stage3d canvas{display:block;width:100%;height:100%}
+.fallback-clip{position:absolute;left:50%;top:34%;width:min(60vw,420px);aspect-ratio:86/34;height:auto;transform:translate(-50%,-50%);color:var(--graphite)}
+.hero-copy{position:absolute;left:0;right:0;bottom:clamp(36px,7vh,84px);text-align:center;pointer-events:none;z-index:2}
+.hero-copy .row{pointer-events:auto;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.word{font-size:clamp(3.4rem,11vw,9.5rem);font-weight:300;letter-spacing:-.065em;line-height:.95}
+.word b{font-weight:600}
+.tagline{margin-top:20px;font-size:clamp(1.1rem,2vw,1.45rem);color:var(--stone);max-width:30ch;margin-left:auto;margin-right:auto}
+.hrv{opacity:0;transform:translateY(30px);transition:opacity 1s var(--out),transform 1.2s var(--out);transition-delay:calc(var(--d,0) * 120ms + 80ms)}
+.hero.lit .hrv{opacity:1;transform:none}
+.film-ui{position:absolute;right:max(24px,env(safe-area-inset-right,0px));top:calc(66px + env(safe-area-inset-top,0px));z-index:5;display:flex;gap:8px}
+.fbtn{display:inline-flex;align-items:center;gap:7px;background:rgba(244,241,234,.1);color:var(--ivory);border:1px solid rgba(244,241,234,.25);border-radius:999px;padding:.42em .95em;font-size:.84rem;font-weight:500;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .3s,color 1s,border-color 1s}
+.fbtn:hover{background:rgba(244,241,234,.2)}
+.hero:not(.night) .fbtn{background:rgba(41,42,41,.05);color:var(--ink);border-color:var(--line)}
+.fbtn svg{width:13px;height:13px}
+.drag-hint{position:absolute;left:50%;transform:translateX(-50%);top:calc(74px + env(safe-area-inset-top,0px));font-size:.82rem;color:var(--stone);display:flex;gap:8px;align-items:center;opacity:0;transition:opacity .8s;pointer-events:none;z-index:2}
+.drag-hint.show{opacity:1}
+.drag-hint i{width:6px;height:6px;border-radius:50%;background:var(--sage);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+@media (max-width:640px){.film-ui{top:calc(62px + env(safe-area-inset-top,0px));right:16px}}

@@ -1,0 +1,21 @@
+/* PRINCÍPIOS: explore os detalhes */
+.explore{position:relative;margin-top:clamp(48px,6vw,72px);background:var(--panel);border-radius:34px;min-height:clamp(560px,74vh,740px);overflow:hidden;display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr)}
+.xp-list{position:relative;z-index:3;padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;justify-content:center;gap:10px;align-items:flex-start}
+.xp{display:grid;grid-template-rows:auto 0fr;background:var(--panel2);color:var(--ivory);border:0;border-radius:28px;padding:13px 22px 13px 14px;text-align:left;transition:grid-template-rows .6s var(--ease),border-radius .6s var(--ease),background .3s;max-width:100%}
+.xp:hover{background:#333433}
+.xp .hd{display:flex;align-items:center;gap:12px;font-weight:600;font-size:1.02rem;letter-spacing:-.015em}
+.xp .ic{width:24px;height:24px;flex:none;border-radius:50%;border:1.6px solid currentColor;position:relative;transition:transform .5s var(--ease)}
+.xp .ic::before,.xp .ic::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1.6px;margin:-.8px 0 0 -5px;background:currentColor;border-radius:2px}
+.xp .ic::after{transform:rotate(90deg)}
+.xp .bd{overflow:hidden;min-height:0}
+.xp .bd p{padding:10px 4px 2px 36px;color:#A9AAA6;font-size:.98rem;line-height:1.45;max-width:30ch}
+.xp.open{grid-template-rows:auto 1fr;border-radius:22px;background:#323332}
+.xp.open .ic{transform:rotate(45deg)}
+.xp-vis{position:relative;min-height:320px}
+#pcanvas{position:absolute;inset:0;width:100%;height:100%}
+.xp-vis::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--panel) 0%,rgba(28,29,28,0) 18%),linear-gradient(0deg,var(--panel) 0%,rgba(28,29,28,0) 30%);pointer-events:none}
+.xp-word{position:absolute;right:clamp(24px,4vw,56px);bottom:clamp(20px,3vw,44px);z-index:2;font-size:clamp(2.4rem,6vw,5rem);font-weight:600;letter-spacing:-.05em;color:var(--ivory);opacity:0;transform:translateY(12px);transition:opacity .7s var(--out),transform .9s var(--out)}
+.xp-word.show{opacity:1;transform:none}
+.xp-close{position:absolute;right:20px;top:20px;z-index:4;width:36px;height:36px;border-radius:50%;border:0;background:var(--panel2);color:var(--ivory);font-size:1.2rem;display:grid;place-items:center}
+.xp-close:hover{background:#3a3b3a}
+@media (max-width:820px){.explore{grid-template-columns:1fr}.xp-vis{order:-1;min-height:300px}.xp-list{padding-top:8px}.xp-vis::after{background:linear-gradient(0deg,var(--panel) 0%,rgba(28,29,28,0) 30%)}}

@@ -1,0 +1,7 @@
+/* revelações ao chegar na seção */
+html.js .rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--out),transform 1.2s var(--out);transition-delay:calc(var(--d,0) * 110ms)}
+html.js .rv.in{opacity:1;transform:none}
+html.js .tr{color:#D3CEC2;transition:color 1.6s var(--out)}
+html.js .tr.in{color:var(--ink)}
+html.js .dark .tr{color:#363735}
+html.js .dark .tr.in{color:var(--ivory)}

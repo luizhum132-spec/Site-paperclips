@@ -1,0 +1,50 @@
+/* Layout: página contínua no padrão das páginas de produto da Apple. Seções grandes, uma ideia por seção,
+   animações que tocam uma vez quando a seção aparece. A rolagem nunca é presa. */
+:root{
+  --graphite:#292A29;
+  --ink:#1C1D1C;
+  --silver:#A7A9AC;
+  --sand:#C8BDA8;
+  --stone:#77736D;
+  --sage:#66705F;
+  --ivory:#F4F1EA;
+  --paper:#FBFAF6;
+  --night:#0F100F;
+  --panel:#1C1D1C;
+  --panel2:#2A2B2A;
+  --line:rgba(41,42,41,.12);
+  --line-d:rgba(244,241,234,.14);
+  --ok:#5E8C61;
+  --warn:#B4743A;
+  --f:'Geist',-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif;
+  --ease:cubic-bezier(.7,0,.2,1);
+  --out:cubic-bezier(.16,1,.3,1);
+  --gut:max(24px,calc((100vw - 1180px)/2 + 24px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--ink);font-family:var(--f);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;letter-spacing:-.011em}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ivory)}
+h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-.035em;line-height:1.05;text-wrap:balance}
+p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--sage);outline-offset:3px;border-radius:8px}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+@media (max-width:640px){:root{--gut:16px}.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
+section[id]{scroll-margin-top:52px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;border:0;padding:.78em 1.35em;font-weight:500;font-size:1rem;transition:transform .2s var(--out),background .2s,color .2s,box-shadow .2s;white-space:nowrap;text-decoration:none}
+.btn:active{transform:scale(.97)}
+.btn-dark{background:var(--graphite);color:var(--ivory)}
+.btn-dark:hover{background:#3a3b3a}
+.btn-line{background:transparent;color:inherit;box-shadow:inset 0 0 0 1px currentColor}
+.btn-line:hover{background:rgba(41,42,41,.06)}
+.btn-light{background:var(--ivory);color:var(--graphite)}
+.btn-light:hover{background:#fff}
+.btn-sm{padding:.5em 1em;font-size:.88rem}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.link{background:none;border:0;padding:0;color:inherit;font-weight:500;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.link::after{content:"";width:7px;height:7px;border-right:1.6px solid currentColor;border-top:1.6px solid currentColor;transform:rotate(45deg);transition:transform .25s var(--out)}
+.link:hover::after{transform:translateX(3px) rotate(45deg)}

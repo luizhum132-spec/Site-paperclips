@@ -1,0 +1,10 @@
+{
+  "name": "paperclips-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site da PaperClips Holding",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  }
+}

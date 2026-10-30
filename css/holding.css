@@ -1,0 +1,15 @@
+/* HOLDING: título que acende + números */
+.glow-sec{position:relative;overflow:hidden;text-align:center}
+.glow-wrap{position:relative;display:inline-block}
+.glow-word{font-size:clamp(4rem,15.5vw,13.5rem);font-weight:600;letter-spacing:-.065em;line-height:.92;display:inline-block;color:#3a3b39;padding:0 .04em}
+html.js .glow-word{background:linear-gradient(100deg,#F4F1EA 0%,#F4F1EA 42%,#ffffff 47%,#B9CCFF 50%,#3a3b39 57%,#3a3b39 100%);background-size:260% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent}
+html.js .glow-word.in{animation:sweep 2.4s var(--ease) .2s forwards}
+@keyframes sweep{to{background-position:0 0}}
+.bloom{position:absolute;left:50%;top:55%;width:120%;height:160%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(185,204,255,.22),rgba(185,204,255,0));opacity:0;pointer-events:none;transition:opacity 2s var(--out) 1.4s}
+.glow-word.in+.bloom{opacity:1}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;margin-top:clamp(56px,7vw,90px)}
+.stat small{display:block;color:#8f908d;font-size:1rem}
+.stat b{display:block;font-size:clamp(3rem,6vw,4.8rem);font-weight:600;letter-spacing:-.05em;line-height:1;margin:6px 0 4px;font-variant-numeric:tabular-nums}
+.stat span{color:var(--ivory);font-size:1.15rem;font-weight:500}
+html.js .stat.rv{transition-delay:calc(var(--d,0) * 700ms + 900ms)}
+@media (max-width:700px){.stats{grid-template-columns:1fr;gap:40px}}
