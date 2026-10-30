@@ -55,7 +55,7 @@ git add -A && git commit -m "Descreve a mudança"   # salvar um ponto
 git log --oneline          # histórico
 git restore .              # descartar mudanças não salvas
 git revert <commit>        # desfazer um commit já salvo (mantém o histórico)
-git checkout v1-organizado -- .   # restaurar todos os arquivos para a versão organizada
+git checkout origin/versao/v1-organizado -- .   # restaurar todos os arquivos para a versão organizada
 ```
 
-Tags: `v0-original` (HTML único recebido) e `v1-organizado` (esta estrutura).
+Pontos de restauração (branches no GitHub): `versao/v0-original` (HTML único recebido) e `versao/v1-organizado` (esta estrutura).
