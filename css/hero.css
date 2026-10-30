@@ -1,7 +1,6 @@
 /* HERO: filme 3D */
-.hero{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:var(--ivory);transition:background-color 1.8s var(--ease)}
+.hero{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:var(--ivory)}
 .hero.night{background:#040404}
-#curtain{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 #stage3d{position:absolute;inset:0;touch-action:pan-y;cursor:grab}
 #stage3d:active{cursor:grabbing}
 #stage3d canvas{display:block;width:100%;height:100%}

@@ -12,6 +12,13 @@ npm run dev
 
 Abra http://localhost:5173. Para outra porta: `node server.js 8080`.
 
+## Design
+
+- [`docs/design/01-pesquisa-apple.md`](docs/design/01-pesquisa-apple.md): o que aprendemos estudando as páginas de produto da Apple.
+- [`docs/design/02-sistema-de-design.md`](docs/design/02-sistema-de-design.md): personas, narrativa, regras de movimento, roteiro da abertura e das próximas seções.
+
+Para ajustar a abertura quadro a quadro, abra o console do navegador e use `film.seek(5.2)`. Para voltar a tocar, clique em "Repetir abertura".
+
 ## Estrutura
 
 ```
@@ -34,14 +41,15 @@ js/                   scripts clássicos, carregados nesta ordem (compartilham o
   core.js             utilitários ($, $$, clamp, store, toast, easing)
   reveal.js           observador de visibilidade
   nav.js              seção ativa e tema claro/escuro da nav
-  streaks.js          cortinas de luz
-  hero-film.js        filme 3D do clipe (three.js)
+  streaks.js          cortinas de luz (também usadas como imagem da tela do notebook)
+  hero-film.js        filme da abertura: notebook, clipe e mergulho na tela (three.js)
   game-engines.js     motores Bigodes e FicCity
   highlights.js … panel.js   lógica de cada seção
   loop.js             laço único de animação
   init.js             inicialização (sempre por último)
 vendor/three@0.147.0/ three.js local
 server.js             servidor estático de desenvolvimento
+docs/design/          pesquisa e sistema de design
 ```
 
 A ordem dos `<script>` em `index.html` importa: um arquivo pode usar o que foi definido nos anteriores.

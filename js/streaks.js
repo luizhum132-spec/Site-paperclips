@@ -1,6 +1,7 @@
 /* ===== Cortinas de luz (como a tela do MacBook): milhares de fios verticais ===== */
 'use strict';
-function Streaks(canvas){
+// size opcional ({w,h}): desenha num canvas fora da página, como a textura da tela do notebook.
+function Streaks(canvas,size){
   const ctx=canvas.getContext('2d');let w=1,h=1,dpr=1,lines=[],old=null,mix=1;
   const st={alpha:1,pour:1};
   function gen(c){
@@ -18,7 +19,7 @@ function Streaks(canvas){
     return out;
   }
   function set(c){old=lines;lines=gen(c);mix=old.length?0:1}
-  function resize(){const r=canvas.getBoundingClientRect();w=Math.max(1,r.width);h=Math.max(1,r.height);dpr=Math.min(2,devicePixelRatio||1);canvas.width=w*dpr;canvas.height=h*dpr}
+  function resize(){if(size){w=size.w;h=size.h;dpr=1}else{const r=canvas.getBoundingClientRect();w=Math.max(1,r.width);h=Math.max(1,r.height);dpr=Math.min(2,devicePixelRatio||1)}canvas.width=w*dpr;canvas.height=h*dpr}
   function draw(ls,a,t){
     for(const l of ls){
       const pf=cl(st.pour*1.5-Math.abs(l.x-.5));const len=l.len*h*pf;if(len<2)continue;
@@ -33,6 +34,7 @@ function Streaks(canvas){
     ctx.globalCompositeOperation='lighter';mix=Math.min(1,mix+.025);
     if(old&&mix<1)draw(old,1-mix,t);draw(lines,mix,t);ctx.globalCompositeOperation='source-over';
   }
+  if(size)resize();
   return{set,resize,frame,st};
 }
 const SCFG={
