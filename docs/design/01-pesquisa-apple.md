@@ -104,8 +104,8 @@ As descrições de acessibilidade contam cada cena. Os padrões que se repetem:
 | Rótulo → título → prova → mídia | Mesma fórmula para Games e Tecnologia |
 | Escuro para o produto, claro para a conversa | Games e Tecnologia no escuro; holding e contato no claro |
 | Tocar ao chegar, uma vez, sem prender a rolagem | Já usamos; vira regra do sistema de movimento |
-| A tela como portal | **A nova abertura**: o clipe entra na tela do notebook e a tela vira o site |
-| A luz do produto ilumina o mundo | A tela acende e ilumina o teclado; as cortinas de luz são a "tela" da PaperClips |
+| O objeto nasce e se revela | **A abertura "A forja"**: o fio nasce incandescente do escuro e é dobrado até virar o clipe |
+| A luz do produto ilumina o mundo | O fio quente é a única luz da cena; ao esfriar, o estúdio acende e o aço passa a refletir |
 | Quadro final sempre bonito | Movimento reduzido, botão de pular ou fim do filme dão o mesmo quadro final |
 
 O sistema completo está em [`02-sistema-de-design.md`](02-sistema-de-design.md).

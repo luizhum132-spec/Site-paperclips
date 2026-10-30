@@ -33,7 +33,7 @@ A página é uma apresentação com atos, como um keynote:
 
 | Ato | Seção | Pergunta respondida | Emoção |
 |---|---|---|---|
-| 1. Encanto | Abertura (filme) | "O que é isso?" | Espanto, curiosidade |
+| 1. Encanto | Abertura (a forja) | "O que é isso?" | Espanto, curiosidade |
 | 2. Clareza | Destaques | "O que a holding faz?" | Entendimento rápido |
 | 3. Crença | Princípios | "No que eles acreditam?" | Afinidade |
 | 4. Prova | A holding (números) | "Funciona mesmo?" | Confiança |
@@ -61,7 +61,7 @@ Voz: frases curtas, verbos no presente, números concretos, nenhum jargão. Port
 4. **Sempre interrompível.** O filme tem "Pular abertura" e "Repetir abertura". Sair da seção encerra o filme.
 5. **Movimento reduzido = quadro final.** Com "reduzir movimento" ligado, mostra-se direto o estado final, sem perder nenhuma informação.
 6. **Objetos têm peso.** Aceleram e freiam, nunca começam ou param secos.
-7. **A luz conta a história.** Escuro antes, luz depois. A tela ilumina o teclado e o metal reflete o ambiente.
+7. **A luz conta a história.** Escuro antes, luz depois. O fio incandescente é a primeira luz da cena e o metal reflete o estúdio.
 
 ### Tokens (em `css/base.css` e `js/core.js`)
 | Token | Valor | Uso |
@@ -81,30 +81,36 @@ Voz: frases curtas, verbos no presente, números concretos, nenhum jargão. Port
 
 ---
 
-## 4. A abertura
+## 4. A abertura: "A forja"
 
-**Intenção:** a pessoa deve sentir que está vendo o lançamento de um produto, e entender no fim que o "produto" é a própria PaperClips.
+**Intenção:** a pessoa assiste ao nascimento do símbolo da empresa. Um fio de aço incandescente sai do escuro,
+esfria até virar prata e é dobrado curva por curva até se tornar o clipe. É a ideia da PaperClips (fazer algo
+simples e essencial com cuidado) contada sem uma palavra.
 
-Arquivo: [`js/hero-film.js`](../../js/hero-film.js). Duração: 10,4 s. Pode ser pulada e repetida.
+Arquivo: [`js/hero-film.js`](../../js/hero-film.js). Duração: 9,6 s. Pode ser pulada e repetida.
 
 | Tempo | Cena | O que se vê | Por quê |
 |---|---|---|---|
-| 0,0–0,6 s | Escuro | Preto. A exposição sobe devagar. | O silêncio antes da fala, para ganhar atenção |
-| 0,2–2,6 s | **Chegada** | Um notebook fechado sobe de fora do quadro, girando, e para de frente. Uma luz percorre a tampa. | Apresentar o objeto como alguém que o traz na mão para o palco |
-| 2,2–4,6 s | **Abertura** | A tampa abre. A tela acende com as cortinas de luz, que escorrem do centro para as bordas. A luz da tela cai sobre o teclado. | A tela é o personagem; a luz mostra que algo está vivo |
-| 4,0–6,8 s | **O clipe** | Um arame de metal entra voando pelo canto, de fora do quadro, e se dobra no caminho até virar um clipe, parado diante da tela. | A marca nasce de um gesto simples: dobrar um fio |
-| 6,8–9,6 s | **Mergulho** | A câmera avança junto com o clipe. A tela clareia até virar marfim, cobre o quadro, e o clipe atravessa para dentro dela. | O momento "uau": entramos na tela, e a tela é o site |
-| 9,6–10,4 s | **Chegada ao site** | O fundo já é a página. O nome *paperclips*, a frase e os botões sobem em cascata. | O encanto vira informação |
+| 0,0–0,5 s | Escuro | Preto absoluto. | O silêncio antes da fala |
+| 0,5–3,0 s | **Nascimento** | Um ponto de luz aparece e dele sai um fio branco-amarelo, rápido no início e freando até parar, soltando fagulhas. A câmera começa rente ao ponto e recua acompanhando o fio. | O fio é a única luz da cena. Ele chama o olhar |
+| 1,5–4,8 s | **Têmpera** | O fio esfria da ponta para trás: amarelo, laranja, vermelho, um tom de palha e, por fim, o aço prateado. A luz do estúdio sobe aos poucos e um brilho percorre o metal. | A transformação de matéria bruta em produto acabado |
+| 4,3–7,2 s | **Dobra** | As três curvas do clipe se dobram uma de cada vez, a de fora, a do meio e a de dentro. O trecho do meio fica parado, como preso num dobrador. O trecho que gira passa por cima do arame e assenta no plano com uma leve acomodação de mola. O fio gira no espaço para mostrar cada dobra. | Cuidado e precisão: cada curva tem seu momento |
+| 6,4–9,6 s | **Assentamento** | A câmera chega ao quadro final, o fundo clareia do preto ao marfim, e o nome *paperclips*, a frase e os botões sobem em cascata. | O encanto vira informação |
 
 **Detalhes de execução:**
-- O enquadramento final do mergulho é **exatamente** o quadro final do site. Por isso não há corte nem salto.
-- A tela fica marfim (`#F4F1EA`, a cor da página) antes de cobrir o quadro. Quando cobre, o notebook some e o fundo da página assume, sem transição visível.
-- O clipe é desenhado "por cima" do notebook durante o mergulho. Ao cruzar o plano da tela, ele parece entrar nela, como num portal.
-- Em telas em pé (celular), a câmera começa mais longe para o notebook caber no quadro.
+- **Fluidez:** câmera, posição e rotação do clipe seguem curvas de Hermite que passam pelos pontos-chave **sem parar**.
+  Só o primeiro e o último quadro têm velocidade zero. Nada começa ou termina seco.
+- **Metal quente:** a cor de cada ponto do fio vem da temperatura (radiação de corpo negro), calculada a partir de quando aquele ponto saiu.
+  Enquanto está quente, o aço fica escuro e fosco. Ao esfriar, volta a refletir o estúdio.
+- **Brilho real:** a cena é desenhada em alta faixa dinâmica, e só o que passa do branco se espalha num halo (bloom em 5 níveis).
+  Sem WebGL 2, a cena é desenhada sem o halo.
+- **Fagulhas:** 280 partículas, cada uma com nascimento, velocidade, gravidade e resfriamento próprios, calculadas na placa de vídeo.
+- **Dobra física:** o comprimento do arame é preservado. Cada dobra usa uma mola que parte do repouso e assenta em ~0,8 s com ~4% de excesso.
+- **Estúdio:** as caixas de luz refletidas no aço têm bordas suaves, geradas no próprio código. Não há imagens externas.
+- **Desempenho:** se o aparelho não mantiver ~30 quadros por segundo, a resolução interna cai sozinha.
+- O quadro final é o mesmo de antes: o clipe pode ser girado com o dedo ou o mouse.
 - Sem WebGL, aparece um clipe desenhado. Com movimento reduzido, vai direto ao quadro final.
-- Para ajustar o tempo de uma cena, abra o console do navegador e use `film.seek(5.2)`, que congela o filme nesse instante.
-
----
+- Para ajustar uma cena, abra o console do navegador e use `film.seek(5.2)`, que congela o filme nesse instante.
 
 ## 5. Roteiro das próximas seções
 
@@ -127,7 +133,7 @@ Cada seção recebe o tratamento de "história de produto". Ordem sugerida de im
 Quando a PaperClips for apresentada (reunião, evento, vídeo), o site é o palco:
 
 1. **Abra em tela cheia, já no topo, com a abertura pronta.** Diga uma frase só ("Quero mostrar o que a gente está construindo.") e **pare de falar**.
-2. **Durante os 10 segundos do filme, fique parado, com as mãos quietas e o olhar na tela.** O público olha para onde você olha.
+2. **Durante os 10 segundos da forja, fique parado, com as mãos quietas e o olhar na tela.** O público olha para onde você olha.
 3. **Fale só depois que a coisa acontece.** Quando o nome aparecer, diga o que é a holding numa frase.
 4. **Role devagar, com um gesto contínuo**, como quem vira a página de um livro. Pause em cada título por 2 segundos antes de explicar.
 5. **Aponte para o resultado, não para o processo.** "Esse jogo cabe em cinco minutos", e não "aqui tem um canvas que…".

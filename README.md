@@ -41,8 +41,8 @@ js/                   scripts clássicos, carregados nesta ordem (compartilham o
   core.js             utilitários ($, $$, clamp, store, toast, easing)
   reveal.js           observador de visibilidade
   nav.js              seção ativa e tema claro/escuro da nav
-  streaks.js          cortinas de luz (também usadas como imagem da tela do notebook)
-  hero-film.js        filme da abertura: notebook, clipe e mergulho na tela (three.js)
+  streaks.js          cortinas de luz
+  hero-film.js        abertura "A forja": fio incandescente que esfria e é dobrado até virar o clipe (three.js)
   game-engines.js     motores Bigodes e FicCity
   highlights.js … panel.js   lógica de cada seção
   loop.js             laço único de animação
